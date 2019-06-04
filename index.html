@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>練習用</title>
+    <script>
+        function hoge() {
+          const spin_stop = document.getElementById('spin');
+          spin_stop.style.display = 'none';
+
+          const stop_spin = document.getElementById('stop');
+          stop_spin.style.display = '';
+
+
+          // setInterval(関数, 50);
+          start_slot();
+
+
+          }
+
+        function foo() {
+          const stop_spin = document.getElementById('stop');
+          stop_spin.style.display = 'none';
+
+          const spin_stop = document.getElementById('spin');
+          spin_stop.style.display = '';
+
+          combo_stop();
+        }
+
+        function getRandomImage() {
+        const panel = document.getElementById('image');
+        const images = [
+          'img/susikora.png',
+          'img/52garon.png',
+          'img/wakabasyu-ta-.png'
+        ];
+        const random_num = Math.floor(Math.random() * images.length);
+        panel.src = images[random_num];
+        }
+
+        function start_slot(){
+          timer=setInterval(function(){
+            getRandomImage();
+          },50);
+        }
+        // const start = function combo_getRandomImage() {
+        //   getRandomImage();
+        // }
+
+        function combo_stop() {
+          clearInterval(timer);
+        }
+
+    </script>
+
+  </head>
+  <link rel="stylesheet" href="css/styles.css" />
+  <body>
+    <main>
+      <img id="image" src="img/susikora.png" alt="スシコラの画像" />
+    </main>
+    <div id="spin" onclick="hoge()">SPIN</div>
+    <div id="stop" onclick="foo()" style="display:none;">STOP</div>
+  </body>
+  </html>
